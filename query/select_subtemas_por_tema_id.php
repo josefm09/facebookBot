@@ -2,7 +2,7 @@
 	
 	$valores = array();
 	//inicio del query
-	$idtema = 1; //Cambiar esto
+	$id_tema = $_POST['id_tema'];
 	$query = "SELECT `id_sub_tema`, `sub_tema`, `id_tema` FROM `sub_temas` WHERE `id_tema` = ?";
 	if ($stmt = $mysqli->prepare($query))
 		{
