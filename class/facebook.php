@@ -43,7 +43,7 @@ class facebook
     * Esta funcion es la que actua como cierre de session y esta predefinida
     * en 3 minutos
     */
-    $query = "SELECT `ultimo_request` FROM log_peticiones WHERE `id_cliente` = ? AND (UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(`fecha_creacion`)) < 180 ORDER BY(`id_log_peticiones`) DESC LIMIT 1";
+    $query = "SELECT IFNULL((SELECT `ultimo_request` FROM log_peticiones WHERE `id_cliente` = ? AND (UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(`fecha_creacion`)) < 180 ORDER BY(`id_log_peticiones`) DESC LIMIT 1),"defaul")";
     if ($stmt = $mysqli->prepare($query))
       {
       //Asigna las variables para el query
