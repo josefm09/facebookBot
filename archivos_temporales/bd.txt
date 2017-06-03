@@ -1,3 +1,5 @@
+CREATE DATABASE Hackathon_cd;
+
 /*
 * Son los usuarios que hacen uso del sistema desde el chat bot
 */
@@ -12,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `ciudadano` (
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id_ciudadano`)
 );
-//como administramos a los representantes o origen
+/*como administramos a los representantes o origen*/
 
 /*
 * Son las peticiones que hacen los ciudadanos
@@ -21,11 +23,24 @@ CREATE TABLE IF NOT EXISTS `peticion` (
   `id_peticion` int(20) UNSIGNED NOT NULL,
   `tema` varchar(50) NOT NULL,
   `id_ciudadano` int(20) NOT NULL,
-  `tipo_propuesta` int(10) NOT NULL, //se clasifica en idea,propuesta,iniciativa o demanda,peticion,gestion
+  `tipo_propuesta` int(10) NOT NULL, /*se clasifica en idea,propuesta,iniciativa o demanda,peticion,gestion*/
   `planteamiento` varchar(100) NOT NULL,
   `propuesta_solucion` varchar(100),
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id_peticion`)
+);
+
+/*
+* Mantiene un recuento del flujo a seguir pos los usuarios que usan el bot
+*/
+CREATE TABLE IF NOT EXISTS `log_peticiones` (
+  `id_log_peticiones` int(20) UNSIGNED NOT NULL,
+  `id_cliente` varchar(20) NOT NULL,
+  `ultimo_request` varchar(25) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_log_peticiones`)
 );
