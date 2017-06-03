@@ -1,6 +1,6 @@
 <?php
 
-	function obtener_imagen_peticion_por_id_peticion ($id_peticion) {
+	function obtener_imagen_peticion_por_id_peticion ($mysqli, $id_peticion) {
 		$stmt = $mysqli->prepare("Select id_imagen from peticion_imagen where id_peticion = ?");
 		
 		$stmt->bind_param("i", $id_peticion);
@@ -37,7 +37,7 @@
 		return $nombre_imagen_desencriptada;
 	}
 
-	function obtener_tema_peticion_por_id_peticion($id_peticion) {
+	function obtener_tema_peticion_por_id_peticion($mysqli, $id_peticion) {
 		$estatus = 1;
 		
 		$stmt=$mysqli->prepare("SELECT tema from peticion where estatus = ?");
