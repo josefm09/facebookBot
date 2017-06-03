@@ -1,0 +1,31 @@
+/*
+* Son los usuarios que hacen uso del sistema desde el chat bot
+*/
+CREATE TABLE IF NOT EXISTS `ciudadano` (
+  `id_ciudadano` int(20) UNSIGNED NOT NULL,
+  `nombre` varchar(75) NOT NULL,
+  `domicilio` varchar(25) NOT NULL,
+  `telefono` int(15) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_ciudadano`)
+);
+//como administramos a los representantes o origen
+
+/*
+* Son las peticiones que hacen los ciudadanos
+*/
+CREATE TABLE IF NOT EXISTS `peticion` (
+  `id_peticion` int(20) UNSIGNED NOT NULL,
+  `tema` varchar(50) NOT NULL,
+  `id_ciudadano` int(20) NOT NULL,
+  `tipo_propuesta` int(10) NOT NULL, //se clasifica en idea,propuesta,iniciativa o demanda,peticion,gestion
+  `planteamiento` varchar(100) NOT NULL,
+  `propuesta_solucion` varchar(100),
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_peticion`)
+);
