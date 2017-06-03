@@ -1,0 +1,10 @@
+"id_servicio","servicio","correo","tiempoCritico","abreviatura"
+"0","Oficialia Mayor","contraloria.reportanet@correo.culiacan.gob.mx","00:00:00",
+"1","Alumbrado Público","alumbrado.publico@correo.culiacan.gob.mx","72:00:00","AP"
+"2","Aseo y Limpia","aseo.limpia@correo.culiacan.gob.mx","72:00:00","AL"
+"3","Obras Publicas","rouse_77cul@hotmail.com","72:00:00","BC"
+"4","Fugas de Agua","osvaldovg@japac.gob.mx","86:00:00","FA"
+"6","Lotes Baldios",NULL,"00:00:00",
+"7","Parques y Jardines",NULL,"00:00:00",
+"8","Inspeccion y Vigilancia",NULL,"00:00:00",
+"9","Seguridad Publica",NULL,"00:00:00",
