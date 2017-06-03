@@ -44,3 +44,9 @@ CREATE TABLE IF NOT EXISTS `log_peticiones` (
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id_log_peticiones`)
 );
+
+=============================================================================================================================
+CREATE USER 'hackathon_master'@'localhost' IDENTIFIED BY 'qveHxCR367@DBmTvmaJoa';
+GRANT ALL PRIVILEGES ON hackathon_cd.* TO 'hackathon_master'@'localhost';
+
+FLUSH PRIVILEGES;
