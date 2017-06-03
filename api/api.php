@@ -70,6 +70,13 @@ $accion_pendiente_session = "default";
 
 require "../modelo_facebook/default.php";
 
+if($mensaje = "Petición"){
+  require "../modelo_facebook/peticion.php";
+}
+
+if($mensaje = "Mis peticiones"){
+  require "../modelo_facebook/ver_estatus.php";
+}
 
 /*
 * Codifica la respuesta y la retorna a facebook

@@ -24,11 +24,6 @@ $jsonData = '{
       "content_type":"text",
       "title":"Mis peticiones",
       "payload":"ver_estatus"
-    },
-    {
-      "content_type":"text",
-      "title":"Votar",
-      "payload":"votar"
     }
   ]
 }
