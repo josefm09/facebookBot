@@ -31,5 +31,39 @@ class facebook
 
     return "success";
     }
+
+  function tomar_ultimo_request($mysqli, $sender)
+    {
+    /*
+    * Siempre da un output, si el usuario esta pasando por alguna fase de
+    * multiples pasos se retorna el paso siguiente a cargar, alternativamente
+    * retorna "default" si no hay actividad por un periodo de tiempo o "nothing"
+    * si no hay ningun flujo en curso
+    *
+    * Esta funcion es la que actua como cierre de session y esta predefinida
+    * en 3 minutos
+    */
+    $query = "SELECT `ultimo_request` FROM log_peticiones WHERE `id_cliente` = ? AND (UNIX_TIMESTAMP(NOW()) - UNIX_TIMESTAMP(`fecha_creacion`)) < 180 ORDER BY(`id_log_peticiones`) DESC LIMIT 1";
+    if ($stmt = $mysqli->prepare($query))
+      {
+      //Asigna las variables para el query
+      $stmt->bind_param( "i", $sender);
+
+      //Ejecuta el query
+      $stmt->execute();
+
+      //Asigna el resultado a una variable
+      $stmt->bind_result($ultima_accion);
+
+      //obtener valor
+      while ($stmt->fetch())
+        {
+
+        }
+
+      //Cierra el query
+      $stmt->close();
+      }
+    }
   }
 ?>
