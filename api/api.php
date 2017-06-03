@@ -1,21 +1,45 @@
 <?php
 /*
-* Creado por Jose Pablo Domingo Aramburo Sanchez
+* Creado por JelouSoft
 * Junio de 2017
+*
+* Jose Pablo Domingo Aramburo Sanchez
 * josepablo.aramburo@gmail.com
+*
+* Jose Carlos Flores Moran
++ josecarlos_floresmoran@hotmail.com
 */
+
 /*
-Este script actua como un controlador central de todo el sistema, todos los modelos y vistas son cargados en esta api de manera automatica
-por medio de los parametros enviados en los requests AJAX
-Las variables recibidas son colocadas en un array de uso general llamado $variables_recibidas donde se encontrara el input de GET y POST para
-agilizar la creacion de modulos y de metodos de validacion.
+* Esta api sera el punto central para interactuat con el servicio de facebook
+*
+* Cada peticion enviada por facebook contiene una accion la cual sera
+* cargada por la api haciendo una llamada a la classe correspondiente lo cual
+* volvera mas ligera la interfaz web y permitira segmentar mas el codigo por
+* bloques
 */
-//Desactiva el reporte de los errores y alertas en pantalla para evitar que el output se vea contaminado con texto sin formato
+
+//Desactiva el reporte de los errores y alertas en pantalla para evitar
+//que el output se vea contaminado con texto sin formato
 error_reporting(E_ERROR);
-/*require "../include/conexcion.php";
-require "../clase/gestion_cliente.php";
-//Carga la clase
-$obj = new gestion_cliente();*/
+
+//require "../include/conexcion.php";
+
+/*
+* Autocarga de clases, para hacer uso de una clase solo es necesario
+* declararla, ejemplo $algo = NEW algo(); con esto la funcion cargara el
+* script correspondiente de manera automatica
+*
+* Para que la autocarga funcione es necesario que la clase y el archivo
+* tengan el mismo nombre
+*/
+spl_autoload_register(function ($nombre_clase) {
+    require_once "../class/$nombre_clase.php";
+});
+
+/*
+* Autentificacion con facebook al momento de recibir el request
+*/
 $access_token = "EAAJZCHFSt5MYBAFZAo6STunPaf3nzBSh1W6JTVu5tHkBQ0g5IA6gi3yaST3hyR7npXzZCtu4ZATnftdwyU4Kn7QH91IqZAeBAAteoFk72WISWjymffIlxaKZAmadTgo6UOKWtXSCG4T2z0ZCy085ssn5rnerts7asdHakZB2ecOppQZDZD";
 $verify_token = "hackathon";
 $hub_verify_token = null;
@@ -26,66 +50,30 @@ if(isset($_REQUEST['hub_challenge'])) {
 if ($hub_verify_token === $verify_token) {
     echo $challenge;
 }
-$input = json_decode(file_get_contents('php://input'), true);
+
+/*
+* Decodifica el JSON pasado por facebook como parte del request
+*/
+$input = json_decode(file_get_contents('php://input'), true);//Raw data
+//ID interno de facebook para identificar al usuario que envia el mensaje
 $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
+//El mensaje enviado, este puede ser la payload del input o bien el texto enviado
 $message = $input['entry'][0]['messaging'][0]['message']['text'];
 $message_to_reply = '';
 
-//***********Si el usuario no tiene ninguna accion reciente registrada***********
+/*
+* Inicia el proceso pada determinar que mensaje mostrar al usuario
+*/
 
-  //API Url
-  $url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
-  $message_to_reply = 'Huh! what do you mean?';
-  print $message_to_reply;
-  //Initiate cURL.
-  $ch = curl_init($url);
-  //The JSON data.
-  $jsonData = '{
-    "recipient":{
-      "id":"'.$sender.'"
-    },
-    "message":{
-    "text":"Hola espero se encuentre bien, ¿En que podemos ayudarle?",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Petición",
-        "payload":"peticion"
-      }
-    ]
-  }
-  }';
+//se asume el query para ver si hay accioes pendientes por el user
+$accion_pendiente_session = "default";
 
-    //***********Para pedir un nuevo prestamo***********
-    if($message == "Petición")
-      {
-        //API Url
-        $url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
-        //Initiate cURL.
-        $ch = curl_init($url);
-        //The JSON data.
-        $jsonData = '{
-          "recipient":{
-            "id":"'.$sender.'"
-          },
-          "message":{
-          "text":"¿Que tipo de prestamo desea?",
-          "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Prestamo individual",
-              "payload":"prestamo_individual"
-            },
-            {
-              "content_type":"text",
-              "title":"Prestamo grupal",
-              "payload":"prestamo_grupal"
-            }
-          ]
-        }
-        }';
-      }
-//pide al usuario que introdusca el numero telefonico con el que se identifica el grupo
+require "../modelo_facebook/default.php";
+
+
+/*
+* Codifica la respuesta y la retorna a facebook
+*/
 //Encode the array into JSON.
 $jsonDataEncoded = $jsonData;
 //Tell cURL that we want to send a POST request.
