@@ -64,6 +64,13 @@ class facebook
       //Cierra el query
       $stmt->close();
       }
+
+    if(!isset)
+      {
+      $ultima_accion = "default";
+      }
+
+    return $ultima_accion;
     }
   }
 ?>

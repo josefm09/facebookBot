@@ -65,18 +65,33 @@ $message_to_reply = '';
 * Inicia el proceso pada determinar que mensaje mostrar al usuario
 */
 
-//se asume el query para ver si hay accioes pendientes por el user
-$accion_pendiente_session = "default";
+//Toma el la siguiente accion a llevar a cabo desde base de datos
+$facebook = NEW facebook;
+$accion_pendiente_session = $facebook->tomar_ultimo_request($mysqli, $sender);
 
-require "../modelo_facebook/default.php";
+//Si el estatus es default significa que el usuario es nuevo o caduco su session
+if($accion_pendiente_session == "default")
+  {
+  require "../modelo_facebook/default.php";
+  }
 
-if($mensaje = "Petición"){
-  require "../modelo_facebook/peticion.php";
-}
+//No hay flujo proramado desde base de datos, se toma el input del usuario
+if($accion_pendiente_session == "nothing")
+  {
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$mensaje.php"))
+		{
+		require (dirname(__FILE__) . "/../modelo_facebook/$mensaje.php");
+		}
+  }
 
-if($mensaje = "Mis peticiones"){
-  require "../modelo_facebook/ver_estatus.php";
-}
+//Si hay un flujo pendiente
+if($accion_pendiente_session != "default" AND $accion_pendiente_session != "nothing")
+  {
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php"))
+		{
+		require (dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php");
+		}
+  }
 
 /*
 * Codifica la respuesta y la retorna a facebook

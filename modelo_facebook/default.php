@@ -28,4 +28,7 @@ $jsonData = '{
   ]
 }
 }';
+
+//Registra que no hay flujo actual
+$facebook->tomar_ultimo_requestintroducir_ultimo_request($mysqli, $sender, "nothing");
 ?>
