@@ -6,46 +6,112 @@ CREATE DATABASE Hackathon_cd;
 CREATE TABLE IF NOT EXISTS `ciudadano` (
   `id_ciudadano` int(20) UNSIGNED NOT NULL,
   `nombre` varchar(75) NOT NULL,
-  `domicilio` varchar(25) NOT NULL,
-  `telefono` int(15) NOT NULL,
-  `correo` varchar(50) NOT NULL,
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id_ciudadano`)
 );
-/*como administramos a los representantes o origen*/
 
-/*
-* Son las peticiones que hacen los ciudadanos
-*/
-CREATE TABLE IF NOT EXISTS `peticion` (
-  `id_peticion` int(20) UNSIGNED NOT NULL,
-  `tema` varchar(50) NOT NULL,
-  `id_ciudadano` int(20) NOT NULL,
-  `tipo_propuesta` int(10) NOT NULL, /*se clasifica en idea,propuesta,iniciativa o demanda,peticion,gestion*/
-  `planteamiento` varchar(100) NOT NULL,
-  `propuesta_solucion` varchar(100),
+CREATE TABLE IF NOT EXISTS `correo_electronico` (
+  `id_correo_electronico` int(20) NOT NULL AUTO_INCREMENT,
+  `correo_electronico` varchar(75) NOT NULL,
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id_peticion`)
+  PRIMARY KEY  (`id_correo_electronico`)
 );
 
-/*
-* Mantiene un recuento del flujo a seguir pos los usuarios que usan el bot
-*/
-CREATE TABLE IF NOT EXISTS `log_peticiones` (
-  `id_log_peticiones` int(20) UNSIGNED NOT NULL,
-  `id_cliente` varchar(20) NOT NULL,
-  `ultimo_request` varchar(25) NOT NULL,
+CREATE TABLE IF NOT EXISTS `ciudadano_correo_electronico` (
+  `id_ciudadano_correo_electronico` int(10) NOT NULL AUTO_INCREMENT,
+  `id_ciudadano` varchar(75) NOT NULL,
+  `id_correo_electronico` int(20) UNSIGNED NOT NULL,
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id_log_peticiones`)
+  PRIMARY KEY  (`id_ciudadano_correo_electronico`)
 );
 
-=============================================================================================================================
+
+CREATE TABLE IF NOT EXISTS `telefono` (
+  `id_telefono` int(20) NOT NULL AUTO_INCREMENT,
+  `telefono` varchar(75) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_telefono`)
+);
+
+CREATE TABLE IF NOT EXISTS `ciudadano_telefono` (
+  `id_ciudadano_telefono` int(10) NOT NULL AUTO_INCREMENT,
+  `id_ciudadano` varchar(75) int(10) NOT NULL,
+  `id_telefono` int(10) UNSIGNED NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_ciudadano_telefono`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta` (
+  `id_propuesta` int(10) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(75) NOT NULL,
+  `problematica` varchar(255) NOT NULL,
+  `solucion` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_imagen` (
+  `id_propuesta_imagen` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_imagen` varchar(255) NOT NULL,  
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_imagen`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_subtema` (
+  `id_propuesta_subtema` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_subtema` varchar(255) NOT NULL,  
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_imagen`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
+  `id_propuesta_comentario_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_ciudadano` varchar(75) NOT NULL,
+  `comentario` varchar(255) NOT NULL,  
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_imagen`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_votacion_ciudadano` (
+  `id_propuesta_votacion_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_ciudadano` varchar(75) NOT NULL,
+  `votacion` varchar(255) NOT NULL,  
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_imagen`)
+);
+
+
+
+
+
+
+
+
+
 CREATE USER 'hackathon_master'@'localhost' IDENTIFIED BY 'qveHxCR367@DBmTvmaJoa';
 GRANT ALL PRIVILEGES ON hackathon_cd.* TO 'hackathon_master'@'localhost';
 
