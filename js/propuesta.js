@@ -36,9 +36,9 @@ $(document).ready(function(){
 			success:function(data){
 				
 				//datos de propuesta
-				data.datos_propuesta.titulo;
-				data.datos_propuesta.problematica;
-				data.datos_propuesta.solucion;
+				$('.titulo').html(data.datos_propuesta.titulo);
+				$('.problematica').html(data.datos_propuesta.problematica);
+				$('.solucion').html(data.datos_propuesta.solucion);
 				
 				//tema y subtema
 				data.datos_tema.nombre_subtema;

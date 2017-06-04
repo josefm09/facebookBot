@@ -11,6 +11,14 @@
 			<div class="col-md-12">
 				<h2 class="titulo"></h2>
 			</div>
+			<div class="col-md-12">
+				<h3>Problemática</h3>
+				<p class="problematica"></p>
+			</div>
+			<div class="col-md-12">
+				<h3>Solución</h3>
+				<p class="solucion"></p>
+			</div>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
