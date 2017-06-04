@@ -2,7 +2,6 @@
 
 class ciudadano
 {
-
 	function crear_ciudadano($mysqli, $id_ciudadano, $nombre)
 	{
 
@@ -14,7 +13,7 @@ class ciudadano
     													(?,?,?,now(),now())");
 
     //Indica a la base de datos que recibira 2 string y 3 integer correspoendietes a los signos de ? en el query
-    $stmt->bind_param("ssi", $id_ciudadano, $nombre, $estatus);
+    $stmt->bind_param("isi", $id_ciudadano, $nombre, $estatus);
 
     //Ejecuta el query
     $stmt->execute();
