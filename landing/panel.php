@@ -52,9 +52,13 @@ require "../includes/footer.html";
 require "../view/modales_eventos_ajax.php";
 ?>
 
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
 <!-- Hojas de estilo -->
-<link rel="stylesheet" href="../css/style.css" media="screen">
 <link rel="stylesheet" href="../css/bootstrap-switch.min.css" media="screen">
+<link rel="stylesheet" href="../css/style.css" media="screen">
 
 
 <!-- Js para la aplicacion -->
@@ -64,5 +68,3 @@ require "../view/modales_eventos_ajax.php";
 <!--<script src="../js/cargar_style_custom_para_usuario.js"></script>-->
 <script src="../js/bootstrap-switch.min.js"></script>
 
-<!-- Custom Fonts -->
-<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

@@ -2,10 +2,9 @@
 <script src="../js/cambiar_password.js"></script>
 
 <form class="form-horizontal" id="cambiar_password">
-					<fieldset>
-
-	<div class="col-md-12">
-		<div class="col-md-12">
+					
+	<div class="col-md-2"></div>
+		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Cambiar contraseña</h3>
@@ -52,8 +51,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	<div class="col-md-2"></div>
 
 	</div>
-							</fieldset>
+							
 					</form>

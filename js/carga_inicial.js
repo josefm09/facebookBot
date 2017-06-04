@@ -64,8 +64,12 @@ function cargar_navbar(){
 		type: 'get',
 		data: parametros,
 		success:function(data){
-			$("#navigation_spot").html(data);
-			//$("#navigation_spot").hide().html(data).fadeIn(1000);
+			//$("#navigation_spot").html(data);
+			$("#navigation_spot").hide().html(data);
+			
+			setTimeout(function(){
+				$("#navigation_spot").show('slow');
+			},500);
 		},
 		//Si el request falla genera mensajes de errores de posibles eventos comunes
 		error:function(x,e) {
@@ -98,8 +102,11 @@ function cargar_primer_vista(){
 		type: 'get',
 		data: parametros,
 		success:function(data){
-			$("#cuerpo").html(data);
+			$("#cuerpo").hide().html(data);
 			
+			setTimeout(function(){
+				$("#cuerpo").show('slow');
+			},500);
 		},
 		//Si el request falla genera mensajes de errores de posibles eventos comunes
 		error:function(x,e) {

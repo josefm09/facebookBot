@@ -13,3 +13,8 @@
 <!-- Librerias necesarias para el datepicker de bootstrap -->
 <script src="../js/bootstrap-datepicker.js" charset="utf-8"></script>
 <link rel="stylesheet" href="../css/datepicker.css">
+
+<!--Highcharts-->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>

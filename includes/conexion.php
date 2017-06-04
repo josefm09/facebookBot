@@ -1,5 +1,5 @@
 <?PHP
-$mysqli = new mysqli('localhost', 'root', "", 'Hackathon_cd');
+$mysqli = new mysqli('localhost', 'hackathon_master', "qveHxCR367@DBmTvmaJoa", 'Hackathon_cd');
 
 mysqli_set_charset($mysqli, "utf8");
 

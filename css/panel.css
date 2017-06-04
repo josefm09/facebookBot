@@ -8,6 +8,10 @@
 	color: black;
 }
 
+.panel-title-derecha{
+	margin-top:0.8em;
+}
+
 .calendar{
 	background: #fff;
 }
@@ -51,6 +55,7 @@ body{
 
 .panel{
 	border-radius: 10px;
+	border:none;
 }
 
 .panel-default .panel-heading{
@@ -473,3 +478,4 @@ input[name = "estrellas"]:checked ~ label#label_estrella{
 	padding: 0;
 	float: left;
 }*/
+

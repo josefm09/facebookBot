@@ -23,7 +23,7 @@
 //que el output se vea contaminado con texto sin formato
 error_reporting(E_ERROR);
 
-//require "../include/conexcion.php";
+require "../includes/conexion.php";
 
 /*
 * Autocarga de clases, para hacer uso de una clase solo es necesario
@@ -40,7 +40,7 @@ spl_autoload_register(function ($nombre_clase) {
 /*
 * Autentificacion con facebook al momento de recibir el request
 */
-$access_token = "EAAJZCHFSt5MYBAM177CejZC0StKoDUymIJu519BnjLtCFv0SQeWpPaMrK1xTV74ipVi3rhRRc8UtMACIe6EDeBLvvXUndFqsqYsheZBsusEH1I52cxJ3ckk5XGSzUgIwvMSJRdD458mDCqBA5juam00hlPi8goyHZAaSjMsWWAZDZD";
+$access_token = "EAAJZCHFSt5MYBAFZAo6STunPaf3nzBSh1W6JTVu5tHkBQ0g5IA6gi3yaST3hyR7npXzZCtu4ZATnftdwyU4Kn7QH91IqZAeBAAteoFk72WISWjymffIlxaKZAmadTgo6UOKWtXSCG4T2z0ZCy085ssn5rnerts7asdHakZB2ecOppQZDZD";
 $verify_token = "hackathon";
 $hub_verify_token = null;
 if(isset($_REQUEST['hub_challenge'])) {
@@ -64,34 +64,34 @@ $message_to_reply = '';
 /*
 * Inicia el proceso pada determinar que mensaje mostrar al usuario
 */
-require "../modelo_facebook/default.php";
+
 //Toma el la siguiente accion a llevar a cabo desde base de datos
-// $facebook = NEW facebook;
-// $accion_pendiente_session = $facebook->tomar_ultimo_request($mysqli, $sender);
-//
-// //Si el estatus es default significa que el usuario es nuevo o caduco su session
-// if($accion_pendiente_session == "default")
-//   {
-//   require "../modelo_facebook/default.php";
-//   }
-//
-// //No hay flujo proramado desde base de datos, se toma el input del usuario
-// if($accion_pendiente_session == "nothing")
-//   {
-//   if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$mensaje.php"))
-// 		{
-// 		require (dirname(__FILE__) . "/../modelo_facebook/$mensaje.php");
-// 		}
-//   }
-//
-// //Si hay un flujo pendiente
-// if($accion_pendiente_session != "default" AND $accion_pendiente_session != "nothing")
-//   {
-//   if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php"))
-// 		{
-// 		require (dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php");
-// 		}
-//   }
+$facebook = NEW facebook();
+$accion_pendiente_session = $facebook->tomar_ultimo_request($mysqli, $sender);
+
+//Si el estatus es default significa que el usuario es nuevo o caduco su session
+if($accion_pendiente_session == "default")
+  {
+  require "../modelo_facebook/default.php";
+  }
+
+//No hay flujo proramado desde base de datos, se toma el input del usuario
+if($accion_pendiente_session == "nothing")
+  {
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$mensaje.php"))
+		{
+		require (dirname(__FILE__) . "/../modelo_facebook/$mensaje.php");
+		}
+  }
+
+//Si hay un flujo pendiente
+if($accion_pendiente_session != "default" AND $accion_pendiente_session != "nothing")
+  {
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php"))
+		{
+		require (dirname(__FILE__) . "/../modelo_facebook/$accion_pendiente_session.php");
+		}
+  }
 
 /*
 * Codifica la respuesta y la retorna a facebook
@@ -111,7 +111,6 @@ if(!empty($input['entry'][0]['messaging'][0]['message'])){
 //==============================
 //Audit
 //==============================
-require "../include/conexcion.php";
 $user_input = json_encode($input);
 $uso_memoria = ((memory_get_usage() / 1024) / 1024);
 $stmt = $mysqli->prepare("INSERT INTO `audit_request` (`id_audit_request`, `json_recibido`, `json_repuesta`, `mb_usados`, `fecha_creacion`, `ultima_modificacion`)
