@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `ciudadano` (
 );
 
 CREATE TABLE IF NOT EXISTS `correo_electronico` (
-  `id_correo_electronico` int(20) NOT NULL AUTO_INCREMENT,
+  `id_correo_electronico` int(10) NOT NULL AUTO_INCREMENT,
   `correo_electronico` varchar(75) NOT NULL,
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `ciudadano_correo_electronico` (
 
 
 CREATE TABLE IF NOT EXISTS `telefono` (
-  `id_telefono` int(20) NOT NULL AUTO_INCREMENT,
+  `id_telefono` int(10) NOT NULL AUTO_INCREMENT,
   `telefono` varchar(75) NOT NULL,
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -74,8 +74,8 @@ CREATE TABLE IF NOT EXISTS `propuesta_imagen` (
 
 CREATE TABLE IF NOT EXISTS `propuesta_subtema` (
   `id_propuesta_subtema` int(10) NOT NULL AUTO_INCREMENT,
-  `id_propuesta` varchar(75) NOT NULL,
-  `id_subtema` varchar(255) NOT NULL,  
+  `id_propuesta` int(10) NOT NULL,
+  `id_subtema` int(10) NOT NULL,  
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -94,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `propuesta_tema` (
 
 CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
   `id_propuesta_comentario_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
-  `id_propuesta` varchar(75) NOT NULL,
-  `id_ciudadano` varchar(75) NOT NULL,
+  `id_propuesta` int(10) NOT NULL,
+  `id_ciudadano` int(10) NOT NULL,
   `comentario` varchar(255) NOT NULL,  
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -105,8 +105,8 @@ CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
 
 CREATE TABLE IF NOT EXISTS `propuesta_votacion_ciudadano` (
   `id_propuesta_votacion_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
-  `id_propuesta` varchar(75) NOT NULL,
-  `id_ciudadano` varchar(75) NOT NULL,
+  `id_propuesta` int(10) NOT NULL,
+  `id_ciudadano` int(10) NOT NULL,
   `votacion` varchar(255) NOT NULL,  
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
