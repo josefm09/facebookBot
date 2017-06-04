@@ -1,15 +1,20 @@
 <div class="col-md-12 text-left">
 	<div class="col-md-2">
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h3 class="panel-title">Peticiones Recibidas</h3>
 			</div>
 			<div class="panel-body">	
-				<table class="table table-striped" id="mostrar_peticiones">
-					<thead>
-						Peticiones Recibidas
+				<table class="table table-striped" id="mostrar_peticiones">	
+					<thead class="row">
+						<tr>
+							<th class="col-md-1">#</th>
+							<th class="col-md-3">Tema</th>
+							<th class="col-md-5">Planteamiento Del Problema</th>
+							<th class="col-md-3">Propuesta Solución</th>
+						</tr>
 					</thead>
 					<tbody>
 					</tbody>

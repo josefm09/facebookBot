@@ -10,7 +10,7 @@
 	$stmt->bind_result($id_peticion, $tema, $id_ciudadano, $tipo_propuesta, $planteamiento, $propuesta_solucion, $estatus, $fecha_creacion, $ultima_modificacion);
 
 	$valores = array();
-	while($stmt->fectch()) {
+	while($stmt->fetch()) {
 		$valores[]=array(
 			"id_peticion" => $id_peticion,
 			"tema" => $tema,
