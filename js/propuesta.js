@@ -1,5 +1,7 @@
 $(document).ready(function(){
 	
+	$('.propuesta').hide();
+	
 	var getUrlParameter = function getUrlParameter(sParam) {
 		var sPageURL = decodeURIComponent(window.location.search.substring(1)),
 			sURLVariables = sPageURL.split('&'),
@@ -15,41 +17,45 @@ $(document).ready(function(){
 		}
 	};
 	
-	$('#btn_unidad').click(function(){
+	$(function(){
 		
 		var id_propuesta = getUrlParameter('id_propuesta');
 		
 		var parametros = {
-			"accion": "consulta_informacion_por_id",
+			"accion": "consultar_informacion_por_id",
 			"tipo_accion": "modelo",
 			"auth": "c",
-			"id_propuesta": id_propuesta
+			"id_propuesta_buscar": id_propuesta
 		};
-		
 		
 		$.ajax({
 			url: '../api/api.php',
-			type: 'POST',
+			type: 'GET',
 			dataType: 'json',
 			data: parametros,
 			success:function(data){
 				
+				//datos de propuesta
+				data.datos_propuesta.titulo;
+				data.datos_propuesta.problematica;
+				data.datos_propuesta.solucion;
+				
+				//tema y subtema
+				data.datos_tema.nombre_subtema;
+				data.datos_tema.nombre_tema;
+				
+				//imagen
+				data.nombre_completo;
+				
+				setTimeout(function(){
+					$('.propuesta').show('slow');
+				},500);
+				
 			},
 			//Si el request falla genera mensajes de errores de posibles eventos comunes
-			error:function(x,e) {
-				if (x.status==0) {
-				$('#modal_error_internet').modal('show');
-				} else if(x.status==404) {
-				$('#modal_error_404').modal('show');
-				} else if(x.status==500) {
-				$('#modal_error_500').modal('show');
-				} else if(e=='parsererror') {
-				$('#modal_error_parsererror').modal('show');
-				} else if(e=='timeout'){
-				$('#modal_error_timeout').modal('show');
-				} else {
-				$('#modal_error_otro').modal('show');
-				}
+			error: function(xhr, desc, err){
+				console.log(xhr);
+				console.log("Details: " + desc + "\nError:" + err);
 			}
 		});
 	});
