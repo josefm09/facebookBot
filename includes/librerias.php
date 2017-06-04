@@ -14,6 +14,10 @@
 <script src="../js/bootstrap-datepicker.js" charset="utf-8"></script>
 <link rel="stylesheet" href="../css/datepicker.css">
 
+<!--Librerias Switch-->
+<script src="../js/bootstrap-switch.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap-switch.min.css">
+
 <!--Highcharts-->
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/highcharts-more.js"></script>

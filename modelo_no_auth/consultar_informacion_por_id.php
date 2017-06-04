@@ -7,7 +7,7 @@
 		
 		$id_propuesta = $_REQUEST['id_propuesta_buscar'];
 	
-		$datos_propuesta = $peticion->obtener_imagen_peticion_por_id_peticion($mysqli, $id_propuesta);
+		$datos_propuesta = $peticion->obtener_informacion_por_id($mysqli, $id_propuesta);
 		
 		$id_subtema = $peticion->obtener_tema_peticion_por_id_peticion($mysqli, $id_propuesta);
 		
