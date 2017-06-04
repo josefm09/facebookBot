@@ -7,7 +7,7 @@
 	$id_propuesta = $REQUEST['id_propuesta'];
 	$voto = $REQUEST['voto'];
 	
-	$id_propuesta_voto_ciudadano = $voto_ciudadano->insertar_voto($mysqli, $id_propuesta, $id_ciudadano, $voto);
+	$id_propuesta_voto_ciudadano = $voto_ciudadano->insertar_propuesta_voto_ciudadano($mysqli, $id_propuesta, $id_ciudadano, $voto);
 	
 	echo($id_propuesta_voto_ciudadano);	
 ?>
