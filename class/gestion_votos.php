@@ -1,5 +1,5 @@
 <?PHP
-	class votos{
+	class gestion_votos{
 		function votos_total_clasificacion($mysqli){
 			$query_clasificacion_uno = "select count(pvc.id_propuesta_votacion_ciudadano) as votos from propuesta_subtema as pst join propuesta_votacion_ciudadano as pvc on pst.id_propuesta = pvc.id_propuesta join sub_tema as st on pst.id_subtema = st.id_subtema where st.id_tema = '1' and pvc.votacion = '1'";
 			if ($stmt = $mysqli->prepare($query_clasificacion_uno)){
@@ -97,6 +97,7 @@
 				//Cierra el query
 				$stmt->close();
 			}
+			return($cadena_votos);
 		}
 	}
 ?>

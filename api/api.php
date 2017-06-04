@@ -14,7 +14,7 @@ agilizar la creacion de modulos y de metodos de validacion.
 */
 
 //Desactiva el reporte de los errores y alertas en pantalla para evitar que el output se vea contaminado con texto sin formato
-// error_reporting(E_ERROR);
+error_reporting(E_ERROR);
 
 //Recibe las variables enviadas por GET o POST y las introduce en un array associativo de uso general el cual
 //Este array permitira mitigar errores de protocolo de envio de variables y facilitara la reutilizacion y creacion de codigo
@@ -60,7 +60,10 @@ if($has_auth == "true")
 		{
 		require "../includes/conexion.php";
 		}
-
+		
+		spl_autoload_register(function ($nombre_clase) {
+			require_once "../class/$nombre_clase.php";
+		});
 	/*
 	Verifica si el request esta definido como automatizado, por ejemplo en la verificacion de tiempo de session del lado del usuario
 	El contenido de la variable no importa, el chequeo solo verifica que exista
