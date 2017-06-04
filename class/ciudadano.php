@@ -13,9 +13,9 @@ class ciudadano
 												(?,?,?,now(),now())";
 
 		if ($stmt = $mysqli->prepare($query))
-				  
+				  {
 				  //Asigna las variables para el query
-				  $stmt->bind_param("isi", $id, $nombre, $estatus);
+				  $stmt->bind_param("ssi", $id, $nombre, $estatus);
 
 				  //Ejecuta el query
 				  $stmt->execute();
@@ -102,34 +102,6 @@ class ciudadano
     return $respuesta;
 
     }
-	
-	function informacion_ciudano_por_id($mysqli, $id_ciudadano){
-		$estatus = 1;
-		$datos_ciudadano = new array();
-		$query = "SELECT ciudadano.nombre, correo_electronico.correo_electronico, telefono.telefono FROM ciudadano
-					INNER JOIN ciudadano_correo_electronico ON ciudadano_correo_electronico.id_ciudadano = ciudadano.id_ciudadano
-					INNER JOIN correo_electronico ON correo_electronico.id_correo_electronico = ciudadano_correo_electronico.id_correo_electronico
-					INNER JOIN ciudadano_telefono ON ciudadano_telefono.id_ciudadano = ciudadano.id_ciudadano
-					INNER JOIN telefono ON telefono.id_telefono = ciudadano_telefono.id_telefono
-					WHERE ciudadano.id_ciudadano = ? AND ciudadano.estatus = ? AND correo_electronico.estatus = ? AND telefono.estatus = ?";
-		if ($stmt = $mysqli->prepare($query)){
-			$stmt->bind_param( "iiii", $id_ciudadano, $estatus, $estatus, $estatus);
-			$stmt->bind_result($nombre, $telefono, $correo);
-			
-			while ($stmt->fetch())
-			{
-				//Cierra el query
-				$stmt->close();
-				
-				$datos_ciudadano = Array (
-					"nombre" => $nombre, 
-					"telefono" => $telefono, 
-					"correo" => $correo
-				);
-			}
-		}
-		return($datos_ciudadano);
-	}
 }
 
 
