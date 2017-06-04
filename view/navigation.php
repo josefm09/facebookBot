@@ -6,7 +6,7 @@
 
 						<ul class="nav navbar-nav navbar-left" id="navegacion">
 						
-							<li><a href="#" data-nav_accion="crear_cliente"> <i class="fa fa-users" aria-hidden="true"></i> Cliente</a></li>
+							<li><a href="#" data-nav_accion="crear_propuesta"> <i class="fa fa-users" aria-hidden="true"></i> Propuesta</a></li>
 							<li><a href="#" data-nav_accion="registar_nuevo_trabajador"> <i class="fa fa-female" aria-hidden="true"></i> Mucaama</a></li>
 							<li><a href="#" data-nav_accion="nueva_encuesta"> <i class="fa fa-commenting" aria-hidden="true"></i> Entrevista</a></li>
 							
