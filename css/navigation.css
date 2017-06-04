@@ -29,40 +29,48 @@
 
 .navbar-default .navbar-nav>li>a {
     color: #fff;
+	margin: 3px;
 }
 .navbar-default .navbar-nav>li>a:hover,
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>.dropdown>a:focus {
-    color: #fff;
-    /* background-color: #5bb163; */
-	background-color: #2d9da4;
-	
-	-webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-}
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.active>a:focus {
-    color: #fff;
-    /* background-color: #5bb163; */
-    background-color: #2d9da4; 
+	color: #fff;
 	
 }
+.navbar-default .navbar-nav>li>a>i:hover,
+.navbar-default .navbar-nav>li>a>i:focus,
+.navbar-default .navbar-nav>.dropdown>a>i:focus {
+    color: #ffd700;
+    /* background-color: #5bb163; */
+	/* background-color: #2d9da4; */
+	/* margin: 1px; */
+	/* border: 2px solid #fff; */
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+ .navbar-default .navbar-nav>.active>a, 
+ .navbar-default .navbar-nav>.active>a:hover, 
+ .navbar-default .navbar-nav>.active>a:focus { 
+     color: #fff; 
+     /* background-color: #5bb163;  */
+     background-color: #2d9da4;  
+	
+ } 
 .navbar-default .navbar-toggle {
     border-color: #2d9da4;
 }
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-    background-color: #2d9da4;
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #2d9da4;
-}
-.navbar-default .navbar-toggle:hover .icon-bar,
-.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #2d9da4;
-}
+/* .navbar-default .navbar-toggle:hover, */
+/* .navbar-default .navbar-toggle:focus { */
+    /* background-color: #2d9da4; */
+/* } */
+/* .navbar-default .navbar-toggle .icon-bar { */
+    /* background-color: #2d9da4; */
+/* } */
+/* .navbar-default .navbar-toggle:hover .icon-bar, */
+/* .navbar-default .navbar-toggle:focus .icon-bar { */
+    /* background-color: #2d9da4; */
+/* } */
 
 /*
 verde #76BE7C
