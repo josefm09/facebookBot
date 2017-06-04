@@ -1,8 +1,4 @@
-<div class="row">
-	<div class="col-md-6">
-		<h3><span class='nombre_sistema'>Estadistica</span> <small>Clasificaciones</small></h3>
-	</div>
-</div>
+<div class="row"></div>
 <div class="row"><br />
 	<div class="col-md-12" id="clasificaciones">
 		<div class = "panel panel-default">
@@ -16,7 +12,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-12 hide" id="sub-clasificaciones">
+	<div class="col-md-12 hide" id="subclasificaciones">
 		<div class = "panel panel-default">
 			<div class = "panel-heading">
 				<h3 class = "panel-title">
