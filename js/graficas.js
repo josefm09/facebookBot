@@ -60,11 +60,11 @@ $(document).ready(function(){
 													$('#column_subclasificaciones').highcharts({
 
 														title: {
-															text: 'Chart.update'
+															text: 'Votos de subclasificaciones'
 														},
 
 														subtitle: {
-															text: 'Plain'
+															text: 'OBRAS Y SERVICIOS'
 														},
 
 														xAxis: {
@@ -84,6 +84,75 @@ $(document).ready(function(){
 																data[12]['nombre_sub_tema'],
 																data[13]['nombre_sub_tema']
 															]
+														},
+														
+														plotOptions: {
+															series: {
+																cursor: 'pointer',
+																point: {
+																	events: {
+																		click: function () {
+																			$('#subclasificaciones').hide();
+																			$('#propuestas').removeClass("hide");
+																			
+																			var subclasificaciones = this.category;
+																		
+																			var parametros_2 = {
+																				"accion":"votos_por_propuesta",
+																				"tipo_accion":"modelo",
+																				"nombre_subclasificacion":subclasificaciones
+																			}
+																			
+																			$.ajax({
+																				url:"../api/api.php",
+																				data:parametros_2,
+																				dataType:"json",
+																				success: function(data){
+																					$('#column_propuestas').highcharts({
+
+																						title: {
+																							text: 'Votos de propuesta'
+																						},
+
+																						subtitle: {
+																							text: ''
+																						},
+
+																						xAxis: {
+																							categories: [
+																								data[0]['titulo_propuesta'],
+																								data[1]['titulo_propuesta'],
+																								data[2]['titulo_propuesta'],
+																								data[3]['titulo_propuesta'],
+																								data[4]['titulo_propuesta']
+																							]
+																						},
+
+																						series: [{
+																							type: 'column',
+																							colorByPoint: true,
+																							data: [
+																								data[0]['votos_totales'],
+																								data[1]['votos_totales'],
+																								data[2]['votos_totales'],
+																								data[3]['votos_totales'],
+																								data[4]['votos_totales']
+																							],
+																							showInLegend: false
+																						}]
+
+																					});
+																				},
+																				error: function(xhr, desc, err){
+																					console.log(xhr);
+																					console.log("Details: " + desc + "\nError:" + err);
+																				}
+																			});
+																		}
+																		
+																	}
+																}
+															}
 														},
 
 														series: [{
@@ -150,6 +219,75 @@ $(document).ready(function(){
 																data[5]['nombre_sub_tema']
 															]
 														},
+														
+														plotOptions: {
+															series: {
+																cursor: 'pointer',
+																point: {
+																	events: {
+																		click: function () {
+																			$('#subclasificaciones').hide();
+																			$('#propuestas').removeClass("hide");
+																			
+																			var subclasificaciones = this.category;
+																		
+																			var parametros_2 = {
+																				"accion":"votos_por_propuesta",
+																				"tipo_accion":"modelo",
+																				"nombre_subclasificacion":subclasificaciones
+																			}
+																			
+																			$.ajax({
+																				url:"../api/api.php",
+																				data:parametros_2,
+																				dataType:"json",
+																				success: function(data){
+																					$('#column_propuestas').highcharts({
+
+																						title: {
+																							text: 'Votos de propuesta'
+																						},
+
+																						subtitle: {
+																							text: ''
+																						},
+
+																						xAxis: {
+																							categories: [
+																								data[0]['titulo_propuesta'],
+																								data[1]['titulo_propuesta'],
+																								data[2]['titulo_propuesta'],
+																								data[3]['titulo_propuesta'],
+																								data[4]['titulo_propuesta']
+																							]
+																						},
+
+																						series: [{
+																							type: 'column',
+																							colorByPoint: true,
+																							data: [
+																								data[0]['votos_totales'],
+																								data[1]['votos_totales'],
+																								data[2]['votos_totales'],
+																								data[3]['votos_totales'],
+																								data[4]['votos_totales']
+																							],
+																							showInLegend: false
+																						}]
+
+																					});
+																				},
+																				error: function(xhr, desc, err){
+																					console.log(xhr);
+																					console.log("Details: " + desc + "\nError:" + err);
+																				}
+																			});
+																		}
+																		
+																	}
+																}
+															}
+														},
 
 														series: [{
 															type: 'column',
@@ -209,6 +347,75 @@ $(document).ready(function(){
 																data[7]['nombre_sub_tema']
 															]
 														},
+														
+														plotOptions: {
+															series: {
+																cursor: 'pointer',
+																point: {
+																	events: {
+																		click: function () {
+																			$('#subclasificaciones').hide();
+																			$('#propuestas').removeClass("hide");
+																			
+																			var subclasificaciones = this.category;
+																		
+																			var parametros_2 = {
+																				"accion":"votos_por_propuesta",
+																				"tipo_accion":"modelo",
+																				"nombre_subclasificacion":subclasificaciones
+																			}
+																			
+																			$.ajax({
+																				url:"../api/api.php",
+																				data:parametros_2,
+																				dataType:"json",
+																				success: function(data){
+																					$('#column_propuestas').highcharts({
+
+																						title: {
+																							text: 'Votos de propuesta'
+																						},
+
+																						subtitle: {
+																							text: ''
+																						},
+
+																						xAxis: {
+																							categories: [
+																								data[0]['titulo_propuesta'],
+																								data[1]['titulo_propuesta'],
+																								data[2]['titulo_propuesta'],
+																								data[3]['titulo_propuesta'],
+																								data[4]['titulo_propuesta']
+																							]
+																						},
+
+																						series: [{
+																							type: 'column',
+																							colorByPoint: true,
+																							data: [
+																								data[0]['votos_totales'],
+																								data[1]['votos_totales'],
+																								data[2]['votos_totales'],
+																								data[3]['votos_totales'],
+																								data[4]['votos_totales']
+																							],
+																							showInLegend: false
+																						}]
+
+																					});
+																				},
+																				error: function(xhr, desc, err){
+																					console.log(xhr);
+																					console.log("Details: " + desc + "\nError:" + err);
+																				}
+																			});
+																		}
+																		
+																	}
+																}
+															}
+														},
 
 														series: [{
 															type: 'column',
@@ -265,6 +472,75 @@ $(document).ready(function(){
 																data[3]['nombre_sub_tema'],
 																data[4]['nombre_sub_tema']
 															]
+														},
+														
+														plotOptions: {
+															series: {
+																cursor: 'pointer',
+																point: {
+																	events: {
+																		click: function () {
+																			$('#subclasificaciones').hide();
+																			$('#propuestas').removeClass("hide");
+																			
+																			var subclasificaciones = this.category;
+																		
+																			var parametros_2 = {
+																				"accion":"votos_por_propuesta",
+																				"tipo_accion":"modelo",
+																				"nombre_subclasificacion":subclasificaciones
+																			}
+																			
+																			$.ajax({
+																				url:"../api/api.php",
+																				data:parametros_2,
+																				dataType:"json",
+																				success: function(data){
+																					$('#column_propuestas').highcharts({
+
+																						title: {
+																							text: 'Votos de propuesta'
+																						},
+
+																						subtitle: {
+																							text: ''
+																						},
+
+																						xAxis: {
+																							categories: [
+																								data[0]['titulo_propuesta'],
+																								data[1]['titulo_propuesta'],
+																								data[2]['titulo_propuesta'],
+																								data[3]['titulo_propuesta'],
+																								data[4]['titulo_propuesta']
+																							]
+																						},
+
+																						series: [{
+																							type: 'column',
+																							colorByPoint: true,
+																							data: [
+																								data[0]['votos_totales'],
+																								data[1]['votos_totales'],
+																								data[2]['votos_totales'],
+																								data[3]['votos_totales'],
+																								data[4]['votos_totales']
+																							],
+																							showInLegend: false
+																						}]
+
+																					});
+																				},
+																				error: function(xhr, desc, err){
+																					console.log(xhr);
+																					console.log("Details: " + desc + "\nError:" + err);
+																				}
+																			});
+																		}
+																		
+																	}
+																}
+															}
 														},
 
 														series: [{
