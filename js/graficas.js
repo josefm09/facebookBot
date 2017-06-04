@@ -30,7 +30,7 @@ $(document).ready(function(){
 					series: [{
 						type: 'column',
 						colorByPoint: true,
-						data: [data[0], data[1], data[2], data[3]],
+						data: [data['voto_uno'], data['voto_dos'], data['voto_tres'], data['voto_cuatro']],
 						showInLegend: false
 					}]
 
@@ -44,19 +44,26 @@ $(document).ready(function(){
 	});
 	
 	$('.btn_mostrar_uno').click(function(){
-		var id_clasificacion_uno = 1;
+		alert('mierda1');
+		
+		/*var id_clasificacion_uno = 1;
 
 		var parametros = {
 			"accion":"votos_por_clasificacion",
 			"tipo_accion":"modelo",
 			"id_clasificacion":id_clasificacion_uno
-		}
-		$.ajax({
+		}*/
+
+		alert(id_clasificacion_uno);
+		/*$.ajax({
 			url:"../api/api.php",
 			data:parametros,
 			dataType:"json",
 			success:function(data){
-				$('#column').highcharts({
+				alert('mierda');
+				$('#column').hide();
+				$('#sub-clasificaciones').removeClass("hide");
+				$('#column_subclasificaciones').highcharts({
 
 					title: {
 						text: 'Chart.update'
@@ -113,7 +120,7 @@ $(document).ready(function(){
 				console.log(xhr);
 				console.log("Details: " + desc + "\nError:" + err);
 			}
-		});
+		});*/
 	});
 	$('.btn_mostrar_dos').click(function(){
 		var id_clasificacion_dos = 2;
@@ -128,7 +135,9 @@ $(document).ready(function(){
 			data:parametros,
 			dataType:"json",
 			success:function(data){
-				$('#column').highcharts({
+				$('#column').hide();
+				$('#column_subclasificaciones').removeClass("hide");
+				$('#column_subclasificaciones').highcharts({
 
 					title: {
 						text: 'Chart.update'
@@ -178,13 +187,16 @@ $(document).ready(function(){
 			"accion":"votos_por_clasificacion",
 			"tipo_accion":"modelo",
 			"id_clasificacion":id_clasificacion_uno
-		}
+		};
+
 		$.ajax({
 			url:"../api/api.php",
 			data:parametros,
 			dataType:"json",
 			success:function(data){
-				$('#column').highcharts({
+				$('#column').hide();
+				$('#column_subclasificaciones').removeClass("hide");
+				$('#column_subclasificaciones').highcharts({
 
 					title: {
 						text: 'Chart.update'
@@ -244,7 +256,9 @@ $(document).ready(function(){
 			data:parametros,
 			dataType:"json",
 			success:function(data){
-				$('#column').highcharts({
+				$('#column').hide();
+				$('#column_subclasificaciones').removeClass("hide");
+				$('#column_subclasificaciones').highcharts({
 
 					title: {
 						text: 'Chart.update'
