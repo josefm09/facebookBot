@@ -79,7 +79,7 @@ $(document).ready(function(){
 		addRemoveLinks: true,
 		acceptedFiles: 'image/*',
 		parallelUploads: 1,
-		dictDefaultMessage: "Arrastra elementos aquí o da click.",
+		dictDefaultMessage: "Para <strong>Adjuntar</strong> da clic aquí o arrastra un elemento.",
 		dictResponseError: "Ha ocurrido un error en el server",
 		dictRemoveFile: "Remover Imagen",
 		init: function(){

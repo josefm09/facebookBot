@@ -8,6 +8,10 @@
 	color: black;
 }
 
+.panel-title-derecha{
+	margin-top:0.8em;
+}
+
 .calendar{
 	background: #fff;
 }
