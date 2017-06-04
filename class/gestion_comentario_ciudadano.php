@@ -9,7 +9,7 @@
 			$stm = $mysqli->prepare($query);
 			$stm->bind_param("iisi",$id_propuesta, $id_cliudadano, $comentario, $estatus);
 			$stm->execute();
-			$id_propuesta_comentario_ciudadano=-$mysqli->insert_id;
+			$id_propuesta_comentario_ciudadano=$stm->insert_id;
 			$stm->close();
 			return ($id_propuesta_comentario_ciudadano);
 		}
