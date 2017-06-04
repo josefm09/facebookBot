@@ -1,33 +1,33 @@
 <?php
 //***********Si el usuario no tiene ninguna accion reciente registrada***********
+// require "../class/gestion_ciudadano.php";
 $cdn = new ciudadano();
-$ciudadano_existe = $cdn->verificar_existencia_ciudadano($mysqli, $sender, $mensaje);
+$ciudadano_existe = $cdn->verificar_existencia_ciudadano($mysqli, $sender);
 
-if($ciudadano_existe = "error"){
+if($ciudadano_existe == "error"){
   //Respuesta a facebook
-  $message_to_reply = 'Bienvenid@ al sistema de Culiacan inteligente, puede ver nuestras politicas de privacidad en jelousoft.com/privacidad \n \n Necesitamos que nos proveea de su numbre para continuar.';
-  print $message_to_reply;
-
-  //API Url
-  $url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
-  //Initiate cURL.
-  $ch = curl_init($url);
-  //The JSON data.
-  $jsonData = '{
-      "recipient":{
-          "id":"'.$sender.'"
-      },
-      "message":{
-          "text":"'.$message_to_reply.'"
-      }
-  }';
-
-  //Indica que espere un request para registrar correo
-  $success = $facebook->introducir_ultimo_request($mysqli, $sender, "registrar_ciudadano_nombre");
+$message_to_reply = 'Bienvenid@ al sistema de Culiacan inteligente, puede ver nuestras politicas de privacidad en jelousoft.com/privacidad \n \n Necesitamos que nos proveea de su nombre para continuar.';
+print $message_to_reply;
+//API Url
+$url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
+//Initiate cURL.
+$ch = curl_init($url);
+//The JSON data.
+$jsonData = '{
+    "recipient":{
+        "id":"'.$sender.'"
+    },
+    "message":{
+        "text":"'.$message_to_reply.'"
+    }
+}';
+//Indica que el siguiente requests sera para registrar el nombre dek ciudadano
+$success = $facebook->introducir_ultimo_request($mysqli, $sender, "registrar_nombre_ciudadano");
 }
-if($ciudadano_existe = "success"){
+
+if($ciudadano_existe == "success"){
   //API Url
-    $url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
+    $url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$access_token;
     //Initiate cURL.
     $ch = curl_init($url);
     //The JSON data.
@@ -42,20 +42,20 @@ if($ciudadano_existe = "success"){
             "template_type":"generic",
             "elements":[
                {
-                "title":"Welcome to Peter\'s Hats",
-                "image_url":"https://petersfancybrownhats.com/company_image.png",
+                "title":"Welcome to Peters Hats",
+                "image_url":"http://i.imgur.com/pW3NNM8.jpg",
                 "subtitle":"We\'ve got the right hat for everyone.",
                 "default_action": {
                   "type": "web_url",
-                  "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                  "url": "http://i.imgur.com/pW3NNM8.jpg",
                   "messenger_extensions": true,
                   "webview_height_ratio": "tall",
-                  "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                  "fallback_url": "http://i.imgur.com/pW3NNM8.jpg"
                 },
                 "buttons":[
                   {
                     "type":"web_url",
-                    "url":"https://petersfancybrownhats.com",
+                    "url":"http://i.imgur.com/pW3NNM8.jpg",
                     "title":"View Website"
                   },{
                     "type":"postback",
@@ -70,4 +70,6 @@ if($ciudadano_existe = "success"){
       }
     }';
 }
+
+
 ?>

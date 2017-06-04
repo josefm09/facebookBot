@@ -78,9 +78,9 @@ if($accion_pendiente_session == "default")
 //No hay flujo proramado desde base de datos, se toma el input del usuario
 if($accion_pendiente_session == "nothing")
   {
-  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$mensaje.php"))
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$message.php"))
 		{
-		require (dirname(__FILE__) . "/../modelo_facebook/$mensaje.php");
+		require (dirname(__FILE__) . "/../modelo_facebook/$message.php");
 		}
   }
 

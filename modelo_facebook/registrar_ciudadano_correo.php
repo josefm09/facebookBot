@@ -1,13 +1,13 @@
 <?php
 /*
-* Toma el nombre enviado por el usuario y lo almacena en base de datos
+* Toma el correo enviado por el usuario y lo almacena en base de datos
 */
 
 $cdn = new ciudadano();
-$id_ciudadano = $cdn->crear_ciudadano($mysqli, $sender, $mensaje);
+$id_ciudadano = $cdn->almacenar_correo($mysqli, $sender, 1);
 
 //Respuesta a facebook
-$message_to_reply = "Su nombre ha sido registrado como: $mensaje, gracias. \n Para continuar el registro necesitamos su correo electronico.";
+$message_to_reply = "Su correo ha sido registrado como: $mensaje, gracias. \n Para continuar el registro necesitamos su correo electronico.";
 print $message_to_reply;
 
 //API Url
@@ -25,7 +25,7 @@ $jsonData = '{
 }';
 
 //Indica que espere un request para registrar correo
-$success = $facebook->introducir_ultimo_request($mysqli, $sender, "registrar_ciudadano_correo");
+$success = $facebook->introducir_ultimo_request($mysqli, $sender, "nothing");
 
 
 ?>
