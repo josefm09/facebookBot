@@ -31,9 +31,9 @@
 							<li class="dropdown">
 								<a href="#" data-nav_accion="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog fa-4x" aria-hidden="true"></i> </a>
 								<ul class="dropdown-menu">
-									<li><a href="#" data-nav_accion="cambiar_password"> Cambiar Contraseña</a></li>
-									<li><a href="#" data-nav_accion="restaurar_password"> Restaurar Contraseña</a></li>
-									<li><a href="#" data-nav_accion="editar_variables_configuracion_sistema"> Configuración del Sistema</a></li>
+									<li><a href="#" data-nav_accion="cambiar_password"><h4><i class="fa fa-refresh" aria-hidden="true"></i> Cambiar Contraseña</h4></a></li>
+									<li><a href="#" data-nav_accion="restaurar_password"><h4><i class="fa fa-unlock" aria-hidden="true"></i> Restaurar Contraseña</h4></a></li>
+									<li><a href="#" data-nav_accion="editar_variables_configuracion_sistema"><h4><i class="fa fa-cog" aria-hidden="true"></i> Configuración del Sistema</h4></a></li>
 								</ul>
 							</li>
 							

@@ -27,6 +27,9 @@
     /* -o-transition: all .5s ease; */
 /* } */
 
+.navbar-default .navbar-nav .dropdown-menu{
+	border-radius: 5px;
+}
 .navbar-default .navbar-nav>li>a {
     color: #fff;
 	margin: 3px;
@@ -35,12 +38,20 @@
 .navbar-default .navbar-nav>li>a:focus,
 .navbar-default .navbar-nav>.dropdown>a:focus {
 	color: #fff;
+	background: transparent;
 	
+}
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:active,.navbar-default .navbar-nav>li>a:selection,.navbar-default .navbar-nav>li>a:checked{
+	background: transparent;
+	text-decoration: none;
 }
 .navbar-default .navbar-nav>li>a>i:hover,
 .navbar-default .navbar-nav>li>a>i:focus,
 .navbar-default .navbar-nav>.dropdown>a>i:focus {
     color: #ffd700;
+	background: transparent;
     /* background-color: #5bb163; */
 	/* background-color: #2d9da4; */
 	/* margin: 1px; */
