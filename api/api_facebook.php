@@ -111,15 +111,15 @@ if(!empty($input['entry'][0]['messaging'][0]['message'])){
 //==============================
 //Audit
 //==============================
-// $user_input = json_encode($input);
-// $uso_memoria = ((memory_get_usage() / 1024) / 1024);
-// $stmt = $mysqli->prepare("INSERT INTO `audit_request` (`id_audit_request`, `json_recibido`, `json_repuesta`, `mb_usados`, `fecha_creacion`, `ultima_modificacion`)
-//                         VALUES
-//                         (NULL,?,?,?,now(),now())");
-// //Indica a la base de datos que recibira 3 string correspoendietes a los signos de ? en el query
-// $stmt->bind_param("sss", $user_input, $jsonData, $uso_memoria);
-// //Ejecuta el query
-// $stmt->execute();
-// //Cierra el query
-// $stmt->close();
+$user_input = json_encode($input);
+$uso_memoria = ((memory_get_usage() / 1024) / 1024);
+$stmt = $mysqli->prepare("INSERT INTO `audit_request` (`id_audit_request`, `json_recibido`, `json_repuesta`, `mb_usados`, `fecha_creacion`, `ultima_modificacion`)
+                        VALUES
+                        (NULL,?,?,?,now(),now())");
+//Indica a la base de datos que recibira 3 string correspoendietes a los signos de ? en el query
+$stmt->bind_param("sss", $user_input, $jsonData, $uso_memoria);
+//Ejecuta el query
+$stmt->execute();
+//Cierra el query
+$stmt->close();
 ?>

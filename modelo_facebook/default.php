@@ -1,7 +1,7 @@
 <?php
 //***********Si el usuario no tiene ninguna accion reciente registrada***********
 $cdn = new ciudadano();
-$ciudadano_existe = $cdn->verificar_existencia_ciudadano($mysqli, $sender);
+$ciudadano_existe = $cdn->verificar_existencia_ciudadano($mysqli, $sender, $mensaje);
 
 if($ciudadano_existe = "error"){
   //Respuesta a facebook
@@ -23,7 +23,7 @@ if($ciudadano_existe = "error"){
   }';
 
   //Indica que espere un request para registrar correo
-  $success = $facebook->introducir_ultimo_request($mysqli, $sender, "nothing");
+  $success = $facebook->introducir_ultimo_request($mysqli, $sender, "registrar_ciudadano_nombre");
 }
 if($ciudadano_existe = "success"){
   //API Url

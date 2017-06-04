@@ -2,20 +2,20 @@
 
 class ciudadano
 {
-	function crear_ciudadano($mysqli, $nombre)
+	function crear_ciudadano($mysqli, $id ,$nombre)
 	{
 
 		$estatus = 1;
 
-		$query = "INSERT INTO �ciudadano�(�id_ciudadano�, �nombre�,
-												�estatus�, `fecha_creacion`, `ultima_modificacion`)
+		$query = "INSERT INTO `ciudadano`(`id_ciudadano`, `nombre`,
+												`estatus`, `fecha_creacion`, `ultima_modificacion`)
 											VALUES
-												(�NULL,?,?,now(),now())";
+												(?,?,?,now(),now())";
 
 		if ($stmt = $mysqli->prepare($query))
 				  {
 				  //Asigna las variables para el query
-				  $stmt->bind_param("si", $nombre, $estatus);
+				  $stmt->bind_param("isi", $id, $nombre, $estatus);
 
 				  //Ejecuta el query
 				  $stmt->execute();
