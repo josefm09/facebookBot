@@ -100,6 +100,33 @@ class ciudadano
     return $respuesta;
 
     }
+
+		function almacenar_correo($mysqli, $id_ciudadano, $id_correo_electronico )
+		{
+
+			$estatus = 1;
+
+			$query = "INSERT INTO `ciudadano_correo_electronico`(`id_ciudadano_correo_electronico`, `id_ciudadano`,
+													`id_correo_electronico`, `estatus`, `fecha_creacion`, `ultima_modificacion`)
+												VALUES
+													(NULL,?,?,?,now(),now())";
+
+			if ($stmt = $mysqli->prepare($query))
+					  {
+					  //Asigna las variables para el query
+					  $stmt->bind_param("iii", $id_ciudadano, $id_correo_electronico, $estatus);
+
+					  //Ejecuta el query
+					  $stmt->execute();
+
+					  $id_ciudadano = $stmt->insert_id;
+
+					  //Cierra el query
+					  $stmt->close();
+					  }
+
+					return $id_ciudadano;
+		}
 }
 
 

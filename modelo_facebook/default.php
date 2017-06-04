@@ -2,9 +2,7 @@
 //***********Si el usuario no tiene ninguna accion reciente registrada***********
 // require "../class/gestion_ciudadano.php";
 $cdn = new ciudadano();
-$ciudadano_existe = $cdn->verificar_existencia_ciudadano($mysqli, $sender);
 
-if($ciudadano_existe == "error"){
   //Respuesta a facebook
 $message_to_reply = 'Bienvenid@ al sistema de Culiacan inteligente, puede ver nuestras politicas de privacidad en jelousoft.com/privacidad \n \n Necesitamos que nos proveea de su nombre para continuar.';
 print $message_to_reply;
