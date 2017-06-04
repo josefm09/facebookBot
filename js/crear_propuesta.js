@@ -131,7 +131,7 @@ $(document).ready(function(){
 			return;
 		}
 		var parametros = {	
-			"accion":"select_subtemas_por_tema_id",
+			"accion":"select_subtemas_por_id_tema",
 			"tipo_accion":"modelo",
 			"id_tema": seleccionado.attr('id')
 		};
@@ -143,6 +143,7 @@ $(document).ready(function(){
 			data: parametros,
 			success:function(data){
 				$(data).each(function(i,v){
+					
 					$('#txt_id_subtema').append(
 						'<option id="'+v.id_sub_tema+'">'+ v.sub_tema + '</option>'
 					);

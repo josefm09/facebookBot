@@ -2,7 +2,7 @@
 	
 	$valores = array();
 	//inicio del query
-	$id_tema = $variables_recibidas['id_tema']; //Cambiar esto
+	
 	$query = "SELECT `id_sub_tema`, `sub_tema`, `id_tema` FROM `sub_temas` WHERE `id_tema` = ?";
 	if ($stmt = $mysqli->prepare($query))
 		{

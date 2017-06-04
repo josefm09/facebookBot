@@ -72,6 +72,7 @@
 											<div class="form-group">
 												<label for="txt_id_subtema">Subtema</label>
 													<select class="form-control" id="txt_id_subtema">
+													<option value="0">Seleccionar tema (Obligatorio)</option>
 												</select>
 											</div>
 										</div>
