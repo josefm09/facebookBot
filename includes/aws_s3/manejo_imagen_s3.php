@@ -12,7 +12,6 @@
 *
 */
 
-
 require 'vendor/autoload.php';
 
 use Aws\Common\Aws;

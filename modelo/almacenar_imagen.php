@@ -1,5 +1,4 @@
 <?PHP
-
 /*
 * Creado por AlexisDos
 * Marzo de 2017
@@ -12,8 +11,6 @@
 * Retorna el id de la imagen almacenada al js almacenar_trabajadores
 *
 */
-header('Content-Type: application/json');
-
 	$error="";
 	$i = 0;
 	//$id_catergoria = $_REQUEST['id_categoria_almacenada'];
@@ -25,7 +22,7 @@ header('Content-Type: application/json');
 			$filename = $_FILES['file']['name'];
 			$ext = pathinfo($filename, PATHINFO_EXTENSION);
 			$estatus = 1;
-			$tipo_almacenado = "s3_public";
+			$tipo_almacenado = "local";
 			//Se almacena imagen en base de datos
 
 			$microtime = microtime();//Timesamp actual del servidor en millonesimas de segundo
@@ -35,20 +32,16 @@ header('Content-Type: application/json');
 			$nombre_archivo_adjunto = $hash.'.'.$ext;
 
 			//move uploaded file to uploads folder
-			$ruta_almacenado_local = $configuraciones_sistema['directorio_local_imagenes'];//configuracion de sistema
+			$ruta_almacenado_local = "imagenes/imagenes";//configuracion de sistema
 			$target_dir = "../$ruta_almacenado_local/";
 			$target_file = $target_dir.$nombre_archivo_adjunto;
 
-
 			move_uploaded_file($tempFile,$target_file);
 
-			include ("../includes/aws_s3/manejo_imagen_s3.php");
+			$id_imagen = almacenar_imagen($mysqli, $filename, $hash, $ext, $tipo_almacenado, $estatus);
 
-			$id_imagen = almacenar_imagen($configuraciones_sistema, $s3Client, $mysqli, $filename, $hash, $ext, $tipo_almacenado, $estatus);
-
-			// $respuesta = $id_imagen;
+			//$respuesta = $id_imagen;
 			echo($id_imagen);
-
 
 	}else{
 

@@ -27,6 +27,7 @@
 		//Cierra el query
 		$stmt->close();
 		}
+		
 	return $valores;
 	
 ?>
