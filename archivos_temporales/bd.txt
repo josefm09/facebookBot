@@ -79,7 +79,17 @@ CREATE TABLE IF NOT EXISTS `propuesta_subtema` (
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id_propuesta_imagen`)
+  PRIMARY KEY  (`id_propuesta_subtema`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_tema` (
+  `id_propuesta_tema` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_tema` varchar(255) NOT NULL,  
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_tema`)
 );
 
 CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
@@ -90,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id_propuesta_imagen`)
+  PRIMARY KEY  (`id_propuesta_comentario_ciudadano`)
 );
 
 CREATE TABLE IF NOT EXISTS `propuesta_votacion_ciudadano` (
@@ -101,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `propuesta_votacion_ciudadano` (
   `estatus` int(10) UNSIGNED NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id_propuesta_imagen`)
+  PRIMARY KEY  (`id_propuesta_votacion_ciudadano`)
 );
 
 
