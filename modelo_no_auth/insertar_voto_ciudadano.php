@@ -1,5 +1,5 @@
 <?PHP
-	require '../modelo_no_auth/gestion_voto_ciudadano.php';
+	require '../class/gestion_voto_ciudadano.php';
 	
 	$voto_ciudadano = new voto_ciudadano();
 	

@@ -1,5 +1,5 @@
 <?PHP
-	require '../modelo_no_auth/gestion_comentario_ciudadano.php';
+	require '../class/gestion_comentario_ciudadano.php';
 	
 	$comentario_ciudadano = new comentario_ciudadano();
 	
