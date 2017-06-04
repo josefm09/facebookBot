@@ -2,31 +2,30 @@
 
 class ciudadano
 {
-	function crear_ciudadano($mysqli, $id ,$nombre)
+
+	function crear_ciudadano($mysqli, $id_ciudadano, $nombre)
 	{
 
 		$estatus = 1;
 
-		$query = "INSERT INTO `ciudadano`(`id_ciudadano`, `nombre`,
-												`estatus`, `fecha_creacion`, `ultima_modificacion`)
-											VALUES
-												(?,?,?,now(),now())";
+		//******Alta del producto******
+    $stmt = $mysqli->prepare("INSERT INTO `ciudadano`(`id_ciudadano`, `nombre`, `estatus`, `fecha_creacion`, `ultima_modificacion`)
+    													VALUES
+    													(?,?,?,now(),now())");
 
-		if ($stmt = $mysqli->prepare($query))
-				  {
-				  //Asigna las variables para el query
-				  $stmt->bind_param("isi", $id, $nombre, $estatus);
+    //Indica a la base de datos que recibira 2 string y 3 integer correspoendietes a los signos de ? en el query
+    $stmt->bind_param("ssi", $id_ciudadano, $nombre, $estatus);
 
-				  //Ejecuta el query
-				  $stmt->execute();
+    //Ejecuta el query
+    $stmt->execute();
 
-				  $id_ciudadano = $stmt->insert_id;
+    //Toma el ID del insert recien hecho
+    $nuevo_id = $mysqli->insert_id;
 
-				  //Cierra el query
-				  $stmt->close();
-				  }
+    //Cierra el query
+    $stmt->close();
 
-				return $id_ciudadano;
+		return $nuevo_id;
 	}
 
 	function verificar_existencia_ciudadano($mysqli, $id_ciudadano)
