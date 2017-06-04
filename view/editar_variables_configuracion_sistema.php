@@ -5,7 +5,7 @@
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
 			<form class="form-horizontal" id="registro_crear_facultad">
-			<div class="col-md-12">
+			
 				<div class="col-md-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">
@@ -48,7 +48,7 @@
 					</div>
 				</div>
 
-			</div>
+			
 			</form>
 		</div>
 		<div class="col-md-2"></div>

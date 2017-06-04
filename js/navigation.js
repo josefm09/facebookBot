@@ -35,8 +35,11 @@ function cargar_vista(accion){
 		type: 'get',
 		data: parametros,
 		success:function(data){
-			$("#cuerpo").html(data);
+			$("#cuerpo").hide().html(data);
 			//$("#cuerpo").hide().html(data).slideDown(1000);
+			setTimeout(function(){
+				$("#cuerpo").show('slow');
+			},400);
 		},
 		//Si el request falla genera mensajes de errores de posibles eventos comunes
 		error:function(x,e) {
