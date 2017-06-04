@@ -38,24 +38,7 @@ else
 
 
 <div id="contenedor_general">
-	<div id="cuerpo"></div>
-	<div id="eventos">
-		<!--<button class="btn btn-success ocultar_barra_eventos"><i class="glyphicon glyphicon-chevron-left"></i></button>-->
-		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
-		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div>
-		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
-		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-credit-card fa-2x" aria-hidden="true"></i></div>
-		<!--<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
-		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>-->
-	</div>
+	<div id="cuerpo" class="col-md-12"></div>
 </div>
 
 

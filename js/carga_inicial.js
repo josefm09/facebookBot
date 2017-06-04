@@ -87,6 +87,7 @@ function cargar_navbar(){
 }
 
 function cargar_primer_vista(){
+	
 	var parametros = {
 		"accion":"primer_vista",
 		"tipo_accion":"modelo",
@@ -98,6 +99,7 @@ function cargar_primer_vista(){
 		data: parametros,
 		success:function(data){
 			$("#cuerpo").html(data);
+			
 		},
 		//Si el request falla genera mensajes de errores de posibles eventos comunes
 		error:function(x,e) {
