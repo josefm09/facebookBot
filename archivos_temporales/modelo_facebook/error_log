@@ -1,0 +1,2 @@
+[04-Jun-2017 15:28:54 UTC] PHP Notice:  Undefined variable: sender in /home/asitefir/public_html/Hackathon/modelo_facebook/test.php on line 10
+[04-Jun-2017 15:28:54 UTC] PHP Notice:  Undefined variable: message in /home/asitefir/public_html/Hackathon/modelo_facebook/test.php on line 10

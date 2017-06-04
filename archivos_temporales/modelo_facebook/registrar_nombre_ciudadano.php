@@ -4,10 +4,10 @@
 */
 
 $cdn = new ciudadano();
-$id_ciudadano = $cdn->almacenar_correo($mysqli, $mensaje);
+$id_ciudadano = $cdn->crear_ciudadano($mysqli, $sender, $message);
 
 //Respuesta a facebook
-$message_to_reply = 'Se ha enviado un correo a la direcion de email proveida, por favor hable conmigo de nuevo tras verificar su correo.';
+$message_to_reply = 'Su nombre ha sido registrado, gracias. \n \n Para continuar el registro necesitamos su correo electronico.';
 print $message_to_reply;
 //API Url
 $url = 'https://graph.facebook.com/v2.9/me/messages?access_token='.$access_token;
@@ -23,7 +23,7 @@ $jsonData = '{
   }
 }';
 //Indica que el siguiente requests sera para registrar el nombre dek ciudadano
-$success = $facebook->introducir_ultimo_request($mysqli, $sender, "default");
+$success = $facebook->introducir_ultimo_request($mysqli, $sender, "registrar_correo_ciudadano");
 
 
 ?>
