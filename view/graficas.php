@@ -1,6 +1,5 @@
-<div class="row"></div>
-<div class="row"><br />
-	<div class="col-md-12" id="clasificaciones">
+	<div class="col-md-1"></div>
+	<div class="col-md-10" id="clasificaciones">
 		<div class = "panel panel-default">
 			<div class = "panel-heading">
 				<h3 class = "panel-title">
@@ -12,7 +11,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-12 hide" id="subclasificaciones">
+	<div class="col-md-10 hide" id="subclasificaciones">
 		<div class = "panel panel-default">
 			<div class = "panel-heading">
 				<h3 class = "panel-title">
@@ -24,6 +23,5 @@
 			</div>
 		</div>
 	</div>
-</div>
-
+	<div class="col-md-1"></div>
 <script src="../js/graficas.js"></script>
