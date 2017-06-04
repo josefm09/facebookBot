@@ -3,9 +3,15 @@ $(document).ready(function(){
 	chart = "";
 	
 	$(function(){
+		var parametros = {
+			"accion":"votos_total_clasificacion",
+			"tipo_accion":"modelo"
+		}
+		
 		$.ajax({
 			url:"../api/api.php",
 			dataType:"json",
+			data: parametros,
 			success: function(data){
 				chart = $('#column').highcharts({
 
@@ -61,13 +67,43 @@ $(document).ready(function(){
 					},
 
 					xAxis: {
-						categories: ['<button id="btn_mostrar_uno" class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_uno" data-id="1">OBRAS Y SERVICIOS</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_dos" data-id="2">CULTURA CÍVICA Y SEGURIDAD PÚBLICA</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_tres" data-id="3">DESARROLLO ECONÓMICO Y COMPETITIVIDAD</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_cuatro" data-id="4">DESARROLLO SOCIAL Y POLÍTICAS DE IGUALDAD</button>']
+						categories: [
+							data[0]['nombre_sub_tema'],
+							data[1]['nombre_sub_tema'],
+							data[2]['nombre_sub_tema'],
+							data[3]['nombre_sub_tema'],
+							data[4]['nombre_sub_tema'],
+							data[5]['nombre_sub_tema'],
+							data[6]['nombre_sub_tema'],
+							data[7]['nombre_sub_tema'],
+							data[8]['nombre_sub_tema'],
+							data[9]['nombre_sub_tema'],
+							data[10]['nombre_sub_tema'],
+							data[11]['nombre_sub_tema'],
+							data[12]['nombre_sub_tema'],
+							data[13]['nombre_sub_tema']
+						]
 					},
 
 					series: [{
 						type: 'column',
 						colorByPoint: true,
-						data: [31.5, 79, 102, 12],
+						data: [
+							data[0]['votos_clasificacion'],
+							data[1]['votos_clasificacion'],
+							data[2]['votos_clasificacion'],
+							data[3]['votos_clasificacion'],
+							data[4]['votos_clasificacion'],
+							data[5]['votos_clasificacion'],
+							data[6]['votos_clasificacion'],
+							data[7]['votos_clasificacion'],
+							data[8]['votos_clasificacion'],
+							data[9]['votos_clasificacion'],
+							data[10]['votos_clasificacion'],
+							data[11]['votos_clasificacion'],
+							data[12]['votos_clasificacion'],
+							data[13]['votos_clasificacion']
+						],
 						showInLegend: false
 					}]
 
@@ -103,13 +139,27 @@ $(document).ready(function(){
 					},
 
 					xAxis: {
-						categories: ['<button id="btn_mostrar_uno" class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_uno" data-id="1">OBRAS Y SERVICIOS</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_dos" data-id="2">CULTURA CÍVICA Y SEGURIDAD PÚBLICA</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_tres" data-id="3">DESARROLLO ECONÓMICO Y COMPETITIVIDAD</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_cuatro" data-id="4">DESARROLLO SOCIAL Y POLÍTICAS DE IGUALDAD</button>']
+						categories: [
+							data[0]['nombre_sub_tema'],
+							data[1]['nombre_sub_tema'],
+							data[2]['nombre_sub_tema'],
+							data[3]['nombre_sub_tema'],
+							data[4]['nombre_sub_tema'],
+							data[5]['nombre_sub_tema']
+						]
 					},
 
 					series: [{
 						type: 'column',
 						colorByPoint: true,
-						data: [31.5, 79, 102, 12],
+						data: [
+							data[0]['votos_clasificacion'],
+							data[1]['votos_clasificacion'],
+							data[2]['votos_clasificacion'],
+							data[3]['votos_clasificacion'],
+							data[4]['votos_clasificacion'],
+							data[5]['votos_clasificacion']
+						],
 						showInLegend: false
 					}]
 
@@ -145,13 +195,31 @@ $(document).ready(function(){
 					},
 
 					xAxis: {
-						categories: ['<button id="btn_mostrar_uno" class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_uno" data-id="1">OBRAS Y SERVICIOS</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_dos" data-id="2">CULTURA CÍVICA Y SEGURIDAD PÚBLICA</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_tres" data-id="3">DESARROLLO ECONÓMICO Y COMPETITIVIDAD</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_cuatro" data-id="4">DESARROLLO SOCIAL Y POLÍTICAS DE IGUALDAD</button>']
+						categories: [
+							data[0]['nombre_sub_tema'],
+							data[1]['nombre_sub_tema'],
+							data[2]['nombre_sub_tema'],
+							data[3]['nombre_sub_tema'],
+							data[4]['nombre_sub_tema'],
+							data[5]['nombre_sub_tema'],
+							data[6]['nombre_sub_tema'],
+							data[7]['nombre_sub_tema']
+						]
 					},
 
 					series: [{
 						type: 'column',
 						colorByPoint: true,
-						data: [31.5, 79, 102, 12],
+						data: [
+							data[0]['votos_clasificacion'],
+							data[1]['votos_clasificacion'],
+							data[2]['votos_clasificacion'],
+							data[3]['votos_clasificacion'],
+							data[4]['votos_clasificacion'],
+							data[5]['votos_clasificacion'],
+							data[6]['votos_clasificacion'],
+							data[7]['votos_clasificacion']
+						],
 						showInLegend: false
 					}]
 
@@ -187,13 +255,25 @@ $(document).ready(function(){
 					},
 
 					xAxis: {
-						categories: ['<button id="btn_mostrar_uno" class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_uno" data-id="1">OBRAS Y SERVICIOS</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_dos" data-id="2">CULTURA CÍVICA Y SEGURIDAD PÚBLICA</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_tres" data-id="3">DESARROLLO ECONÓMICO Y COMPETITIVIDAD</button>', '<button class="btn btn-link btn-lg btn-block btn-huge btn_mostrar_cuatro" data-id="4">DESARROLLO SOCIAL Y POLÍTICAS DE IGUALDAD</button>']
+						categories: [
+							data[0]['nombre_sub_tema'],
+							data[1]['nombre_sub_tema'],
+							data[2]['nombre_sub_tema'],
+							data[3]['nombre_sub_tema'],
+							data[4]['nombre_sub_tema']
+						]
 					},
 
 					series: [{
 						type: 'column',
 						colorByPoint: true,
-						data: [31.5, 79, 102, 12],
+						data: [
+							data[0]['votos_clasificacion'],
+							data[1]['votos_clasificacion'],
+							data[2]['votos_clasificacion'],
+							data[3]['votos_clasificacion'],
+							data[4]['votos_clasificacion']
+						],
 						showInLegend: false
 					}]
 

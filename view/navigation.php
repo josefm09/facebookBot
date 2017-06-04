@@ -19,7 +19,7 @@
 								<a href="#" data-nav_accion="crear_usuario_trabajador"><i class="fa fa-search fa-4x" aria-hidden="true"></i></a>
 							</li>
 							<li>
-								<a href="#" data-nav_accion="crear_usuario_trabajador"><i class="fa fa-area-chart fa-4x" aria-hidden="true"></i></a>
+								<a href="#" data-nav_accion="graficas"><i class="fa fa-area-chart fa-4x" aria-hidden="true"></i></a>
 							</li>
 							
 
