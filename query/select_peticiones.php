@@ -1,26 +1,21 @@
 <?php
 
-	$stmt = $mysqli->prepare("SELECT `id_peticion`, `tema`, `id_ciudadano`, `tipo_propuesta`, `planteamiento`, `propuesta_solucion`, `estatus`, `fecha_creacion`, `ultima_modificacion` FROM `peticion` WHERE estatus = ?");
-
 	$estatus = 1;
+	$stmt = $mysqli->prepare("SELECT `id_propuesta`, `titulo`, `problematica`, `solucion` FROM `propuesta` WHERE estatus = ?");
+
 	$stmt->bind_param("i", $estatus);
 
 	$stmt->execute();
 
-	$stmt->bind_result($id_peticion, $tema, $id_ciudadano, $tipo_propuesta, $planteamiento, $propuesta_solucion, $estatus, $fecha_creacion, $ultima_modificacion);
+	$stmt->bind_result($id_propuesta, $titulo, $problematica, $solucion);
 
 	$valores = array();
 	while($stmt->fetch()) {
 		$valores[]=array(
-			"id_peticion" => $id_peticion,
-			"tema" => $tema,
-			"id_ciudadano" => $id_ciudadano,
-			"tipo_propuesta" => $tipo_propuesta,
-			"planteamiento" => $planteamiento,
-			"propuesta_solucion" => $propuesta_solucion,
-			"estatus" => $estatus,
-			"fecha_creacion" => $fecha_creacion,
-			"ultima_modificacion" => $ultima_modificacion
+			"id_propuesta" => $id_propuesta,
+			"titulo" => $titulo,
+			"problematica" => $problematica,
+			"solucion" => $solucion
 		);
 	}
 

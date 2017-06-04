@@ -12,8 +12,10 @@
 						<tr>
 							<th class="col-md-1">#</th>
 							<th class="col-md-3">Tema</th>
+							<th class="col-md-3">Titulo</th>
 							<th class="col-md-5">Planteamiento Del Problema</th>
-							<th class="col-md-3">Propuesta Solución</th>
+							
+							
 						</tr>
 					</thead>
 					<tbody>
@@ -33,13 +35,15 @@
 				<button type="button" class="close" data-dismiss="modal" id="Cerrar"  aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
-				<h5 id="nombre_propuesta"></h5>
+				<h3><span id="tema_propuesta"></span><small id="sub_tema_propuesta"></small></h3>
 			</div>
 			<div class="modal-body">
-				<table class="table table-striped" id="mostrar_datos_completos">
-					<tbody>
-					</tbody>
-				</table>
+				<h4>Titulo: <span id="titulo_propuesta"></h4>
+				<h5><strong>Problematica: </strong><span id="problematica_propuesta"></h5>
+				<h5><strong>Solución: </strong><span id="solucion_propuesta"></h5>
+				<div class="row">
+					<div class="col-md-12 imagen_propuesta"></div>
+				</div>
 			</div>
 		</div>
 	</div>
