@@ -23,7 +23,7 @@
 //que el output se vea contaminado con texto sin formato
 error_reporting(E_ERROR);
 
-require "../includes/conexion.php";
+//require "../include/conexcion.php";
 
 /*
 * Autocarga de clases, para hacer uso de una clase solo es necesario
@@ -66,7 +66,7 @@ $message_to_reply = '';
 */
 
 //Toma el la siguiente accion a llevar a cabo desde base de datos
-$facebook = NEW facebook();
+$facebook = NEW facebook;
 $accion_pendiente_session = $facebook->tomar_ultimo_request($mysqli, $sender);
 
 //Si el estatus es default significa que el usuario es nuevo o caduco su session
@@ -78,9 +78,9 @@ if($accion_pendiente_session == "default")
 //No hay flujo proramado desde base de datos, se toma el input del usuario
 if($accion_pendiente_session == "nothing")
   {
-  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$message.php"))
+  if (file_exists(dirname(__FILE__) . "/../modelo_facebook/$mensaje.php"))
 		{
-		require (dirname(__FILE__) . "/../modelo_facebook/$message.php");
+		require (dirname(__FILE__) . "/../modelo_facebook/$mensaje.php");
 		}
   }
 
@@ -111,6 +111,7 @@ if(!empty($input['entry'][0]['messaging'][0]['message'])){
 //==============================
 //Audit
 //==============================
+require "../include/conexcion.php";
 $user_input = json_encode($input);
 $uso_memoria = ((memory_get_usage() / 1024) / 1024);
 $stmt = $mysqli->prepare("INSERT INTO `audit_request` (`id_audit_request`, `json_recibido`, `json_repuesta`, `mb_usados`, `fecha_creacion`, `ultima_modificacion`)

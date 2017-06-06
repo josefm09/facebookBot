@@ -1,8 +1,7 @@
 <!-- Js de la vista -->
 <script src="../js/restaurar_password.js"></script>
 
-	<div class="col-md-2"></div>
-		<div class="col-md-8">
+<div class="col-md-12">
 	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title"> Restaurar contraseña </h3>
@@ -31,4 +30,3 @@
 		</div>
 	</div>
 </div>
-	<div class="col-md-2"></div>

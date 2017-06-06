@@ -38,7 +38,24 @@ else
 
 
 <div id="contenedor_general">
-	<div id="cuerpo" class="col-md-12"></div>
+	<div id="cuerpo"></div>
+	<div id="eventos">
+		<!--<button class="btn btn-success ocultar_barra_eventos"><i class="glyphicon glyphicon-chevron-left"></i></button>-->
+		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
+		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-user fa-2x" aria-hidden="true"></i></div>
+		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
+		<div class="col-md-12 boton_sucesos_de_sistema"><i class="fa fa-credit-card fa-2x" aria-hidden="true"></i></div>
+		<!--<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>
+		<div class="row "><div class="col-md-4 col-xs-4 btn"><a href="#" class="ocultar_barra_eventos"><span class="glyphicon glyphicon-home"></span></div><div class="col-md-4 col-xs-4"></div><div class="col-md-4 col-xs-4"></div></div>-->
+	</div>
 </div>
 
 
@@ -52,13 +69,9 @@ require "../includes/footer.html";
 require "../view/modales_eventos_ajax.php";
 ?>
 
-<!-- Custom Fonts -->
-<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
 <!-- Hojas de estilo -->
-<link rel="stylesheet" href="../css/bootstrap-switch.min.css" media="screen">
 <link rel="stylesheet" href="../css/style.css" media="screen">
+<link rel="stylesheet" href="../css/bootstrap-switch.min.css" media="screen">
 
 
 <!-- Js para la aplicacion -->
@@ -68,3 +81,5 @@ require "../view/modales_eventos_ajax.php";
 <!--<script src="../js/cargar_style_custom_para_usuario.js"></script>-->
 <script src="../js/bootstrap-switch.min.js"></script>
 
+<!-- Custom Fonts -->
+<link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

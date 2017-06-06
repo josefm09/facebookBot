@@ -115,15 +115,15 @@ $(document).ready(function(){
 	
 	/*Función para cargar todos los estados a la página*/
 	$(function(){
-		
+		var parametros = {	
+		"accion":"select_estados",
+		"tipo_accion":"modelo"
+		};
 		$.ajax({
 			url: '../api/api.php',
 			type: 'POST',
 			dataType: 'json',
-			data: {
-				"accion":"select_estados",
-				"tipo_accion":"modelo"
-			},
+			data: parametros,
 			success:function(data){
 				$(data).each(function(i,v){
 					$('#select_estado').append(
