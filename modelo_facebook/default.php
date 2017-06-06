@@ -32,43 +32,19 @@ if($ciudadano_existe == "success"){
     $ch = curl_init($url);
     //The JSON data.
     $jsonData = '{
-      "recipient":{
-        "id":"'.$sender.'"
-      },
-      "message":{
-        "attachment":{
-          "type":"template",
-          "payload":{
-            "template_type":"generic",
-            "elements":[
-               {
-                "title":"Welcome to Peters Hats",
-                "image_url":"http://i.imgur.com/pW3NNM8.jpg",
-                "subtitle":"We\'ve got the right hat for everyone.",
-                "default_action": {
-                  "type": "web_url",
-                  "url": "http://i.imgur.com/pW3NNM8.jpg",
-                  "messenger_extensions": true,
-                  "webview_height_ratio": "tall",
-                  "fallback_url": "http://i.imgur.com/pW3NNM8.jpg"
-                },
-                "buttons":[
-                  {
-                    "type":"web_url",
-                    "url":"http://i.imgur.com/pW3NNM8.jpg",
-                    "title":"View Website"
-                  },{
-                    "type":"postback",
-                    "title":"Start Chatting",
-                    "payload":"DEVELOPER_DEFINED_PAYLOAD"
-                  }
-                ]
-              }
-            ]
-          }
-        }
+  "recipient":{
+    "id":"'.$sender.'"
+  },
+  "message":{
+    "attachment":{
+      "type":"image",
+      "payload":{
+        "url":"https://petersapparel.com/img/shirt.png",
+        "is_reusable": true
       }
-    }';
+    }
+  }
+}';
 }
 
 

@@ -1,0 +1,150 @@
+CREATE DATABASE Hackathon_cd;
+
+/*
+* Son los usuarios que hacen uso del sistema desde el chat bot
+*/
+CREATE TABLE IF NOT EXISTS `ciudadano` (
+  `id_ciudadano` int(20) UNSIGNED NOT NULL,
+  `nombre` varchar(75) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_ciudadano`)
+);
+
+CREATE TABLE IF NOT EXISTS `correo_electronico` (
+  `id_correo_electronico` int(10) NOT NULL AUTO_INCREMENT,
+  `correo_electronico` varchar(75) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_correo_electronico`)
+);
+
+CREATE TABLE IF NOT EXISTS `ciudadano_correo_electronico` (
+  `id_ciudadano_correo_electronico` int(10) NOT NULL AUTO_INCREMENT,
+  `id_ciudadano` varchar(75) NOT NULL,
+  `id_correo_electronico` int(20) UNSIGNED NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_ciudadano_correo_electronico`)
+);
+
+
+CREATE TABLE IF NOT EXISTS `telefono` (
+  `id_telefono` int(10) NOT NULL AUTO_INCREMENT,
+  `telefono` varchar(75) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_telefono`)
+);
+
+CREATE TABLE IF NOT EXISTS `ciudadano_telefono` (
+  `id_ciudadano_telefono` int(10) NOT NULL AUTO_INCREMENT,
+  `id_ciudadano` varchar(75) int(10) NOT NULL,
+  `id_telefono` int(10) UNSIGNED NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_ciudadano_telefono`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta` (
+  `id_propuesta` int(10) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(75) NOT NULL,
+  `problematica` varchar(255) NOT NULL,
+  `solucion` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_imagen` (
+  `id_propuesta_imagen` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_imagen` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_imagen`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_subtema` (
+  `id_propuesta_subtema` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` int(10) NOT NULL,
+  `id_subtema` int(10) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_subtema`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_tema` (
+  `id_propuesta_tema` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` varchar(75) NOT NULL,
+  `id_tema` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_tema`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_comentario_ciudadano` (
+  `id_propuesta_comentario_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` int(10) NOT NULL,
+  `id_ciudadano` int(10) NOT NULL,
+  `comentario` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_comentario_ciudadano`)
+);
+
+CREATE TABLE IF NOT EXISTS `propuesta_votacion_ciudadano` (
+  `id_propuesta_votacion_ciudadano` int(10) NOT NULL AUTO_INCREMENT,
+  `id_propuesta` int(10) NOT NULL,
+  `id_ciudadano` int(10) NOT NULL,
+  `votacion` varchar(255) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_propuesta_votacion_ciudadano`)
+);
+
+CREATE TABLE IF NOT EXISTS `log_peticiones` (
+  `id_log_peticiones` int(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_cliente` varchar(20) NOT NULL,
+  `ultimo_request` varchar(25) NOT NULL,
+  `estatus` int(10) UNSIGNED NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_log_peticiones`)
+);
+
+/*
+* Almacena todas las peticiones que recibe la api como una forma de identificar
+* el comportamiento del input del cliente
+*/
+CREATE TABLE IF NOT EXISTS `audit_request` (
+  `id_audit_request` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `json_recibido` MEDIUMTEXT NOT NULL,
+  `json_repuesta` MEDIUMTEXT NULL,
+  `mb_usados` varchar(25) NOT NULL,
+  `fecha_creacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ultima_modificacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id_audit_request`)
+);
+
+
+
+
+
+
+
+CREATE USER 'hackathon_master'@'localhost' IDENTIFIED BY 'qveHxCR367@DBmTvmaJoa';
+GRANT ALL PRIVILEGES ON hackathon_cd.* TO 'hackathon_master'@'localhost';
+
+FLUSH PRIVILEGES;
